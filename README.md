@@ -1,3 +1,5 @@
+# Minimal Linux Live [<img align="right" src="https://travis-ci.org/ivandavidov/minimal.svg?branch=master">](https://travis-ci.org/ivandavidov/minimal)
+
 * [Overview](#overview)
 * [Current development state](#current-development-state)
 * [Future improvements](#future-improvements)
@@ -6,7 +8,7 @@
 * [GraalVM](#graalvm)
 * [BIOS and UEFI](#bios-and-uefi)
 * [Installation](#installation)
-* [Projects based on MLL](#projects-based-on-minimal-linux-live)
+* [Other projects](#other-projects)
 * [Thank you!](#thank-you)
 
 ---
@@ -40,12 +42,12 @@ This is a screenshot of the current development version of Minimal Linux Live:
 
 ### Current development state
 
-As of **03-Jun-2018**:
+As of **23-Jun-2018**:
 
-* Linux kernel 4.16.5 (stable)
+* Linux kernel 4.17.2 (stable)
 * GNU C Library 2.27 (stable)
-* BusyBox 1.28.3 (stable)
-* Stable on default Ubuntu 18.04 installation with applied system updates.
+* BusyBox 1.28.4 (stable)
+* Stable build on default Ubuntu 18.04 installation with applied system updates.
 
 ### Future improvements
 
@@ -63,7 +65,7 @@ sudo apt install wget make gawk gcc bc bison flex xorriso libelf-dev libssl-dev
 ./build_minimal_linux_live.sh
 ```
 
-The default build process uses some custom provided ``CFLAGS``. They can be found in the ``.config`` file. Some of these additional flags were introduced in order to fix different issues which were reported during the development phase. However, there is no guarantee that the build process will run smoothly on your system with these particular flags. If you get compilation issues (please note that I'm talking about compilation issues, not about general shell script issues), you can try to disable these flags and then start the build process again. It may turn out that on your particular host system you don't need these flags. 
+The default build process uses some custom provided ``CFLAGS``. They can be found in the ``.config`` file. Some of these additional flags were introduced in order to fix different issues which were reported during the development phase. However, there is no guarantee that the build process will run smoothly on your system with these particular flags. If you get compilation issues (please note that I'm talking about compilation issues, not about general shell script issues), you can try to disable these flags and then start the build process again. It may turn out that on your particular host system you don't need these flags.
 
 ### Overlay bundles
 
@@ -142,11 +144,13 @@ docker import mll_image.tgz minimal-linux-live:latest
 docker run -it minimal-linux-live /bin/sh
 ```
 
-### Projects based on Minimal Linux Live:
+### Other projects
 
 * [Minimal Linux Script](https://github.com/ivandavidov/minimal-linux-script) - very simplified and minimalistic version of MLL. This project is recommended as a starting point for beginners.
 
 * [systemd-boot](https://github.com/ivandavidov/systemd-boot) - this project provides the UEFI boot loader images that MLL relies on. It also provides helper shell scripts which generate UEFI compatible MLL ISO images out of the already existing BIOS compatible MLL ISO images.
+
+* [Minimal Container Linux](https://github.com/prologic/minimal-container-linux) - minimal live Linux environment with support for Docker.
 
 * [RedoxOS Installer](https://github.com/RedoxOS/installer) - the original installer for [Redox OS](www.redox-os.org) is based on simplified version of Minimal Linux Live.
 
@@ -162,7 +166,7 @@ docker run -it minimal-linux-live /bin/sh
 
 * [prologic's MLL](https://github.com/prologic/minimal) - this fork adds Python support to the MLL runtime environment.
 
-* [KernelISO](https://github.com/rleon/kerneliso) - extended version of MLL.
+* [KernelISO](https://github.com/rleon/kerneliso) - extended version of MLL, based on older version of MLL.
 
 * [diaob's MLL](https://github.com/Diaob/minimal) - MLL translation to Simplified Chinese.
 
